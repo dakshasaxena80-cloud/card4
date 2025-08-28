@@ -1,0 +1,129 @@
+/* Global Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: #ffe6f0;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Falling Hearts */
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  top: -10px;
+  animation: fall linear;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+/* Birthday Card */
+.card {
+  position: relative;
+  z-index: 1;
+  background: white;
+  width: 90%;
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.card h1 {
+  font-size: 2em;
+  color: #ff3399;
+}
+
+.card p {
+  font-size: 1.1em;
+  margin: 10px 0;
+  color: #333;
+}
+
+/* Button */
+.btn {
+  background: #ff3399;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  margin-top: 20px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #e62e8a;
+}
+
+/* Popup Styling */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff0f5;
+  padding: 25px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.popup img {
+  width: 80%;
+  height: 70%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+/* Responsive Adjustments */
+@media screen and (max-width: 600px) {
+  .card {
+    padding: 20px;
+  }
+
+  .card h1 {
+    font-size: 1.5em;
+  }
+
+  .card p {
+    font-size: 1em;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.95em;
+  }
+
+  .popup {
+    padding: 20px;
+  }
+
+  .popup h2 {
+    font-size: 1.4em;
+  }
+
+  .popup p {
+    font-size: 1em;
+  }
+}
