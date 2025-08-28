@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ❤️ Falling Hearts Background -->
+  <div class="hearts-container"></div>
+
+  <!-- 🎉 Birthday Greeting Card -->
+  <div class="card animate__animated animate__bounceIn">
+    <h1>🎉 Happy Birthday 🎂</h1>
+    <p>Wishing you a day filled with laughter and joy!</p>
+    <p>Hope all your wishes comees true my princess</p> 
+    <p>Aur tujhe kya lgga i won't be giving any surprises?</p>
+    <p>Tera bday ho aur meh kuchh du na? It's not possible miitu.</p>
+    <p>Ik my gift is not expensive as others but koi na...</p>
+    <p>Iss gareeb pr mehrbani hi krde 😅 I'm sorry for that!</p>
+    <p>Press the button below to know more 💝</p>
+    <button class="btn" onclick="showPopup('popup1')">Click for a Surprise!</button>
+  </div>
+
+  <!-- 🎁 Popup 1 -->
+  <div class="popup" id="popup1">
+    <h2 class="animate__animated animate__fadeInDown">Surprise #1!</h2>
+    <img src="images/541276802_1132511798850271_7291256106922569834_n.jpg" alt="Birthday">
+    <p class="animate__animated animate__fadeInUp">You're truly one of a kind! 💖</p>
+    <p class="animate__animated animate__fadeInUp">I am so lucky to have u in my life 💖</p>
+    <button class="btn" onclick="nextPopup('popup1', 'popup2')">Next</button>
+  </div>
+
+  <!-- 🎁 Popup 2 -->
+  <div class="popup" id="popup2">
+    <h2 class="animate__animated animate__fadeInDown">Surprise #2!</h2>
+    <img src="images/540960330_626096610574944_2990770308755899031_n.jpg" alt="Cake">
+    <p class="animate__animated animate__fadeInUp">May your cake be sweet and your smiles even sweeter! 🎂</p>
+    <button class="btn" onclick="nextPopup('popup2', 'popup3')">Next</button>
+  </div>
+
+  <!-- 🎁 Popup 3 -->
+  <div class="popup" id="popup3">
+    <h2 class="animate__animated animate__fadeInDown">Surprise #3!</h2>
+    <img src="images/536403848_1338649177594444_7319552177743212497_n.jpg" alt="Confetti">
+    <p class="animate__animated animate__fadeInUp">Hope your day is filled with magic and joy! ✨</p>
+    <button class="btn" onclick="nextPopup('popup3', 'popup4')">Next</button>
+  </div>
+
+  <!-- 🎁 Popup 4 -->
+  <div class="popup" id="popup4">
+    <h2 class="animate__animated animate__fadeInDown">Final Surprise!</h2>
+    <img src="images/537069946_757962136838855_537603171699074675_n.jpg" alt="Fireworks">
+    <p class="animate__animated animate__fadeInUp">Wishing you a year full of happiness, health, and love! 🎇</p>
+    <button class="btn" onclick="closePopup('popup5')">Close</button>
+  </div>
+
+  <!-- 💻 JavaScript -->
+  <script>
+    // Popup Functions
+    function showPopup(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function closePopup(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    function nextPopup(currentId, nextId) {
+      document.getElementById(currentId).style.display = 'none';
+      document.getElementById(nextId).style.display = 'block';
+    }
+
+    // Falling Hearts Animation
+    const container = document.querySelector('.hearts-container');
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerText = '💖';
+
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 2 + Math.random() * 3 + 's';
+      heart.style.opacity = Math.random();
+      heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+
+      container.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+
+</body>
+</html>
